@@ -1,0 +1,119 @@
+<	definitions name = "doMetroService"
+	xmlns="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<message name="addTaskRequest">
+		<part name="addTaskFunction" type="xs:string"/>
+	</message>
+
+	<message name="addTaskResponse">
+		<part name="addTaskFunctionResponse" type="xs:string"/>
+	</message>
+
+	<portType name="addTask_PortType">
+		<operation name="addTaskOP">
+			<input message="addTaskRequest"/>
+			<output message="addTaskResponse"/>
+		</operation>
+	</portType>
+
+	<binding type="addTaskOP" name="bindingAddTask">
+		<soap:binding style="rpc"
+		transport="http://schemas.xmlsoap.org/soap/http" />
+		
+		<operation name = "addTask">
+			<soap:operation soapAction="addTaskOP"/>
+				
+				<input>
+					<soap:body use="literal"/>
+				</input>
+				
+				<output>
+					<soap:body use="literal"/>
+				</output>
+		</operation>
+	</binding>
+	
+	<message name="insertRequest">
+		<part name="insertFunction" type="xs:string"/>
+	</message>
+
+	<message name="insertResponse">
+		<part name="insertFunctionResponse" type="xs:string"/>
+	</message>
+
+	<portType name="insert_PortType">
+		<operation name="insertOP">
+			<input message="insertRequest"/>
+			<output message="insertResponse"/>
+		</operation>
+	</portType>
+
+	<binding type="insertOP" name="bindingInsert">
+		<soap:binding style="rpc"
+		transport="http://schemas.xmlsoap.org/soap/http" />
+		
+		<operation name = "insert">
+			<soap:operation soapAction="insertOP"/>
+				
+				<input>
+					<soap:body use="literal"/>
+				</input>
+				
+				<output>
+					<soap:body use="literal"/>
+				</output>
+		</operation>
+	</binding>
+	
+	<message name="insertRegRequest">
+		<part name="insertRegFunction" type="xs:string"/>
+	</message>
+
+	<message name="insertRegResponse">
+		<part name="insertRegFunctionResponse" type="xs:string"/>
+	</message>
+
+	<portType name="insertReg_PortType">
+		<operation name="insertRegOP">
+			<input message="insertRegRequest"/>
+			<output message="insertRegResponse"/>
+		</operation>
+	</portType>
+
+	<binding type="insertRegOP" name="bindingInsertReg">
+		<soap:binding style="rpc"
+		transport="http://schemas.xmlsoap.org/soap/http" />
+		
+		<operation name = "insertReg">
+			<soap:operation soapAction="insertRegOP"/>
+				
+				<input>
+					<soap:body use="literal"/>
+				</input>
+				
+				<output>
+					<soap:body use="literal"/>
+				</output>
+		</operation>
+	</binding>
+	
+	<service name="doMetroService">
+		<documentation>Web Service do.Metro</documentation>
+		
+		<port binding="addTaskOP" name="addTask_PortType">
+			<soap:address location="http://pabotmania.ap01.af.aws.cm/addTask.php">
+		</port>
+		
+		<port binding="insertOP" name="insert_PortType">
+			<soap:address location="http://pabotmania.ap01.af.aws.cm/insert.php">
+		</port>
+		
+		<port binding="insertRegOP" name="insertReg_PortType">
+			<soap:address location="http://pabotmania.ap01.af.aws.cm/insertReg.php">
+		</port>
+		
+	</service>
+	
+</definitions>
